@@ -26,14 +26,54 @@ const ShowPeers = ({ previewPeers }: previewPeersMetadata) => {
         backgroundColor: 'black',
       }}
     >
-      <span tw='font-bold text-4xl mt-4 text-white'>Huddle01</span>
-      <div tw='flex-wrap flex items-center justify-center gap-4 w-full m-6'>
+      <span
+        style={{
+          fontWeight: 'bold',
+          fontSize: '3rem',
+          marginTop: '1rem',
+          color: 'white',
+        }}
+      >
+        Huddle01
+      </span>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '1rem',
+          width: '100%',
+          margin: '1.5rem',
+        }}
+      >
         {peersMetadata.map((peer) => (
-          <div tw='flex flex-col text-center gap-1' key={peer.displayName}>
-            <div tw='flex items-center justify-center text-3xl font-semibold w-24 h-24 rounded-full text-white bg-gray-800'>
+          <div
+            key={peer.displayName}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              textAlign: 'center',
+              gap: '0.25rem',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '2rem',
+                fontWeight: 'bold',
+                width: '6rem',
+                height: '6rem',
+                borderRadius: '50%',
+                color: 'white',
+                backgroundColor: '#2d2d2d',
+              }}
+            >
               {peer.displayName[0].toUpperCase()}
             </div>
-            <span tw='text-white'>{peer.displayName}</span>
+            <span style={{ color: 'white' }}>{peer.displayName}</span>
           </div>
         ))}
       </div>
