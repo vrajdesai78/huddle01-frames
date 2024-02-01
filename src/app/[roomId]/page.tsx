@@ -1,4 +1,5 @@
 import ShowPeers from '@/components/ShowPeers';
+import { previewPeersMetadata } from '@/utils/types';
 import { Metadata } from 'next';
 
 interface Props {
@@ -30,9 +31,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const Room = ({ params }: Props) => {
+  const peersMetadata = [
+    {
+      displayName: 'vraj.eth',
+    },
+    {
+      displayName: 'axit.eth',
+    },
+    {
+      displayName: 'deepso.eth',
+    },
+  ];
+
   return (
     <>
-      <ShowPeers roomId={params.roomId} />
+      <ShowPeers previewPeers={peersMetadata} roomId={params.roomId} />
     </>
   );
 };
