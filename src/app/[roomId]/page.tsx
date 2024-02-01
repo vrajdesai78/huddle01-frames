@@ -8,8 +8,8 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fcMetadata: Record<string, string> = {
     'fc:frame': 'vNext',
-    'fc:frame:post_url': `https://7305-2409-40c1-500d-eb9a-31b9-b555-bc92-2b25.ngrok-free.app/api?roomId=${params.roomId}`,
-    'fc:frame:image': `https://7305-2409-40c1-500d-eb9a-31b9-b555-bc92-2b25.ngrok-free.app/api?roomId=${params.roomId}`,
+    'fc:frame:post_url': `https://huddle01-frames.vercel.app/api?roomId=${params.roomId}`,
+    'fc:frame:image': `https://huddle01-frames.vercel.app/api?roomId=${params.roomId}`,
     'fc:frame:button:1': 'Refresh Preview',
     'fc:frame:button:2': 'Join Meeting',
   };
@@ -25,9 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     other: {
       ...fcMetadata,
     },
-    metadataBase: new URL(
-      'https://e46d-2409-40c1-1021-5794-3126-21db-2ed1-777e.ngrok-free.app'
-    ),
+    metadataBase: new URL('https://huddle01-frames.vercel.app/'),
   };
 }
 
