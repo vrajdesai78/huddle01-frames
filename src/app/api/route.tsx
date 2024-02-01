@@ -3,7 +3,7 @@ import ShowPeers from '@/components/ShowPeers';
 
 export const runtime = 'edge';
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const roomId = searchParams.get('roomId');
 
