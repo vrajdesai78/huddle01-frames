@@ -20,9 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     other: {
       ...fcMetadata,
     },
-    metadataBase: new URL(
-      'https://9c6c-2409-40c1-10b2-4b5c-c4c8-14cf-cfd8-74a1.ngrok-free.app'
-    ),
+    metadataBase: new URL('https://huddle01-frames.vercel.app'),
   };
 }
 
