@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import ShowPeers from '@/components/ShowPeers';
+import { BackgroundCanvas } from '@/components/BackgroundCanvas';
 
 export const runtime = 'edge';
 
@@ -12,8 +13,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    console.log('here');
-    return new ImageResponse(<div>Hello World!</div>, {
+    return new ImageResponse(<BackgroundCanvas />, {
       width: 1200,
       height: 630,
     });
