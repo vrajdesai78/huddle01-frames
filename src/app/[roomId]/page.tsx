@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const Room = ({ params }: Props) => {
   return (
     <>
-      <h1 className='text-white'>Room: {params.roomId}</h1>
+      <ShowPeers roomId={params.roomId} />
     </>
   );
 };
