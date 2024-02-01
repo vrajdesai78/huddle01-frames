@@ -2,6 +2,18 @@ import { PreviewPeer, previewPeersMetadata } from '@/utils/types';
 import { Client } from '@huddle01/server-sdk/client';
 
 const ShowPeers = ({ previewPeers }: previewPeersMetadata) => {
+  const peersMetadata = [
+    {
+      displayName: 'vraj.eth',
+    },
+    {
+      displayName: 'axit.eth',
+    },
+    {
+      displayName: 'deepso.eth',
+    },
+  ];
+
   return (
     <div
       style={{
@@ -16,7 +28,7 @@ const ShowPeers = ({ previewPeers }: previewPeersMetadata) => {
     >
       <span tw='font-bold mt-4'>Huddle01</span>
       <div tw='flex-wrap flex items-center justify-center gap-4 w-full m-6'>
-        {previewPeers.map((peer) => (
+        {peersMetadata.map((peer) => (
           <div tw='flex flex-col text-center gap-1' key={peer.displayName}>
             <img
               width={100}
