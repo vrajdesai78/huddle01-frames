@@ -125,6 +125,18 @@ export async function POST(request: Request) {
 
   const peers = (await peersMetadata.json()) as previewPeersMetadata;
 
+  const staticPeersMetadata = [
+    {
+      displayName: 'vraj.eth',
+    },
+    {
+      displayName: 'axit.eth',
+    },
+    {
+      displayName: 'deepso.eth',
+    },
+  ];
+
   try {
     return new ImageResponse(
       (
@@ -160,7 +172,7 @@ export async function POST(request: Request) {
               margin: '1.5rem',
             }}
           >
-            {peers.previewPeers.map((peer) => (
+            {staticPeersMetadata.map((peer) => (
               <div
                 key={peer.displayName}
                 style={{
