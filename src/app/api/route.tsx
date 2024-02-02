@@ -56,9 +56,21 @@ export async function POST(request: Request) {
 
   const peers = (await peersMetadata.json()) as previewPeersMetadata;
 
+  const staticPeersMetadata = [
+    {
+      displayName: 'vraj.eth',
+    },
+    {
+      displayName: 'axit.eth',
+    },
+    {
+      displayName: 'deepso.eth',
+    },
+  ];
+
   try {
     return new ImageResponse(
-      <ShowPeers previewPeers={peers.previewPeers} roomId={roomId} />,
+      <ShowPeers previewPeers={staticPeersMetadata} roomId={roomId} />,
       {
         width: 1200,
         height: 630,
