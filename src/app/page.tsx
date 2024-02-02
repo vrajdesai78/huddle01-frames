@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: 'Huddle01 Meet',
       images: [
-        'https://t4.ftcdn.net/jpg/04/61/47/03/360_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg',
+        '',
       ],
     },
     other: {

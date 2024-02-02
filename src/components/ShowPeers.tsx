@@ -2,18 +2,6 @@ import { PreviewPeer, previewPeersMetadata } from '@/utils/types';
 import { Client } from '@huddle01/server-sdk/client';
 
 const ShowPeers = ({ previewPeers }: previewPeersMetadata) => {
-  const peersMetadata = [
-    {
-      displayName: 'vraj.eth',
-    },
-    {
-      displayName: 'axit.eth',
-    },
-    {
-      displayName: 'deepso.eth',
-    },
-  ];
-
   return (
     <div
       style={{
@@ -47,7 +35,7 @@ const ShowPeers = ({ previewPeers }: previewPeersMetadata) => {
           margin: '1.5rem',
         }}
       >
-        {peersMetadata.map((peer) => (
+        {previewPeers.map((peer) => (
           <div
             key={peer.displayName}
             style={{

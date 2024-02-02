@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     `https://api.huddle01.com/api/v1/live-meeting/preview-peers?roomId=${roomId}`,
     {
       headers: {
-        'x-api-key': process.env.NEXT_PUBLIC_API_KEY!,
+        'x-api-key': process.env.API_KEY!,
       },
     }
   );
