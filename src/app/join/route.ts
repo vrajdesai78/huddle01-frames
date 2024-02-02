@@ -1,4 +1,5 @@
 import { getSSLHubRpcClient, Message } from '@farcaster/hub-nodejs';
+import { headers } from 'next/headers';
 
 const HUB_URL = 'nemes.farcaster.xyz:2283';
 const client = getSSLHubRpcClient(HUB_URL);
@@ -32,7 +33,20 @@ export async function POST(request: Request) {
   }
 
   const buttonId = validatedMessage?.data?.frameActionBody?.buttonIndex || 0;
-  const fid = validatedMessage?.data?.fid || 0;
 
-  return new Response(buttonId.toString(), { status: 200 });
+  if (roomId && buttonId === 2) {
+    return new Response('Joining room', {
+      status: 302,
+      headers: {
+        Location: `https://app.huddle01.com/${roomId}`,
+      },
+    });
+  }
+
+  return new Response('Joining room', {
+    status: 302,
+    headers: {
+      Location: `https://app.huddle01.com/${roomId}`,
+    },
+  });
 }
