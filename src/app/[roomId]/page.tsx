@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     'fc:frame:image': `https://huddle01-frames.vercel.app/api?roomId=${params.roomId}`,
     'fc:frame:button:1': 'Refresh Preview',
     'fc:frame:button:2': 'Join Meeting',
+    'fc:frame:button:2:action': 'post_redirect',
   };
 
   return {
