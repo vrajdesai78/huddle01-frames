@@ -1,5 +1,4 @@
-import { PreviewPeer, previewPeersMetadata } from '@/utils/types';
-import { Client } from '@huddle01/server-sdk/client';
+import { previewPeersMetadata } from '@/utils/types';
 
 const ShowPeers = ({ previewPeers }: previewPeersMetadata) => {
   return (

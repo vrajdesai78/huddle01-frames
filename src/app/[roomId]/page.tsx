@@ -1,5 +1,4 @@
 import ShowPeers from '@/components/ShowPeers';
-import { previewPeersMetadata } from '@/utils/types';
 import { Metadata } from 'next';
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fcMetadata: Record<string, string> = {
     'fc:frame': 'vNext',
-    'fc:frame:post_url': `https://huddle01-frames.vercel.app/api?roomId=${params.roomId}`,
+    'fc:frame:post_url': `https://huddle01-frames.vercel.app/join?roomId=${params.roomId}`,
     'fc:frame:image': `https://huddle01-frames.vercel.app/api?roomId=${params.roomId}`,
     'fc:frame:button:1': 'Refresh Preview',
     'fc:frame:button:2': 'Join Meeting',
