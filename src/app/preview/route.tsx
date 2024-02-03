@@ -9,6 +9,8 @@ interface previewPeersMetadata {
   }[];
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const roomId = searchParams.get('roomId');
@@ -121,15 +123,12 @@ export async function POST(request: Request) {
   }
 
   const peersMetadata = await fetch(
-    `https://api.huddle01.com/api/v1/live-meeting/preview-peers?roomId=${roomId}`,
-    {
-      headers: {
-        'x-api-key': process.env.API_KEY!,
-      },
-    }
+    `${process.env.HOST_URL}/api/getData?roomId=${roomId}`
   );
 
   const peers = (await peersMetadata.json()) as previewPeersMetadata;
+
+  const { previewPeers } = peers;
 
   try {
     return new ImageResponse(
@@ -166,15 +165,13 @@ export async function POST(request: Request) {
               margin: '1.5rem',
             }}
           >
-            {peers.previewPeers.map((peer) => (
+            {previewPeers.map((peer) => (
               <div
                 key={peer.displayName}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   textAlign: 'center',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   gap: '0.25rem',
                 }}
               >
@@ -197,10 +194,9 @@ export async function POST(request: Request) {
                 <span
                   style={{
                     color: 'white',
-                    fontSize: '0.25rem',
+                    fontSize: '1.25rem',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid white',
                   }}
                 >
                   {peer.displayName}
