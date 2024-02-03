@@ -107,6 +107,6 @@ export default async function handler(
     res.setHeader('Content-Type', 'image/png');
     res.send(pngBuffer);
   } catch (e) {
-    res.status(500).send('Error generating preview image.');
+    res.status(500).send(e);
   }
 }

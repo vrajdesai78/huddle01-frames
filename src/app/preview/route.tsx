@@ -18,27 +18,12 @@ export async function GET(request: Request) {
   }
 
   const peersMetadata = await fetch(
-    `https://api.huddle01.com/api/v1/live-meeting/preview-peers?roomId=${roomId}`,
-    {
-      headers: {
-        'x-api-key': process.env.API_KEY!,
-      },
-    }
+    `${process.env.HOST_URL}/api/getData?roomId=${roomId}`
   );
 
   const peers = (await peersMetadata.json()) as previewPeersMetadata;
 
-  const staticPeersMetadata = [
-    {
-      displayName: 'vraj.eth',
-    },
-    {
-      displayName: 'axit.eth',
-    },
-    {
-      displayName: 'deepso.eth',
-    },
-  ];
+  const { previewPeers } = peers;
 
   try {
     return new ImageResponse(
@@ -75,7 +60,7 @@ export async function GET(request: Request) {
               margin: '1.5rem',
             }}
           >
-            {staticPeersMetadata.map((peer) => (
+            {previewPeers.map((peer) => (
               <div
                 key={peer.displayName}
                 style={{
@@ -101,7 +86,16 @@ export async function GET(request: Request) {
                 >
                   {peer.displayName[0].toUpperCase()}
                 </div>
-                <span style={{ color: 'white' }}>{peer.displayName}</span>
+                <span
+                  style={{
+                    color: 'white',
+                    fontSize: '1.25rem',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {peer.displayName}
+                </span>
               </div>
             ))}
           </div>
@@ -137,18 +131,6 @@ export async function POST(request: Request) {
 
   const peers = (await peersMetadata.json()) as previewPeersMetadata;
 
-  const staticPeersMetadata = [
-    {
-      displayName: 'vraj.eth',
-    },
-    {
-      displayName: 'axit.eth',
-    },
-    {
-      displayName: 'deepso.eth',
-    },
-  ];
-
   try {
     return new ImageResponse(
       (
@@ -184,13 +166,15 @@ export async function POST(request: Request) {
               margin: '1.5rem',
             }}
           >
-            {staticPeersMetadata.map((peer) => (
+            {peers.previewPeers.map((peer) => (
               <div
                 key={peer.displayName}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   textAlign: 'center',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   gap: '0.25rem',
                 }}
               >
@@ -210,7 +194,17 @@ export async function POST(request: Request) {
                 >
                   {peer.displayName[0].toUpperCase()}
                 </div>
-                <span style={{ color: 'white' }}>{peer.displayName}</span>
+                <span
+                  style={{
+                    color: 'white',
+                    fontSize: '0.25rem',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid white',
+                  }}
+                >
+                  {peer.displayName}
+                </span>
               </div>
             ))}
           </div>
