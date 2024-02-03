@@ -2,14 +2,14 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
+export const dynamic = 'force-dynamic';
+
 interface previewPeersMetadata {
   roomId: string;
   previewPeers: {
     displayName: string;
   }[];
 }
-
-export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -30,7 +30,7 @@ export async function GET(request: Request) {
 
   const peers = (await peersMetadata.json()) as previewPeersMetadata;
 
-  console.log('called', peers, roomId);
+  console.log('reload', peers, roomId);
   const { previewPeers } = peers;
 
   try {
