@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fcMetadata: Record<string, string> = {
     'fc:frame': 'vNext',
     'fc:frame:post_url': `https://huddle01-frames.vercel.app/api?roomId=${params.roomId}`,
-    'fc:frame:image': `https://huddle01-frames.vercel.app/api?roomId=${params.roomId}`,
+    'fc:frame:image': `https://huddle01-frames.vercel.app/api/preview?roomId=${params.roomId}`,
     'fc:frame:button:1': 'Refresh Preview',
     'fc:frame:button:2': 'Join Meeting',
     'fc:frame:button:2:action': 'post_redirect',
