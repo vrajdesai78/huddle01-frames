@@ -8,7 +8,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fcMetadata: Record<string, string> = {
     'fc:frame': 'vNext',
     'fc:frame:post_url': `${process.env.HOST_URL}/join?roomId=${params.roomId}`,
-    'fc:frame:image': `${process.env.HOST_URL}/preview?roomId=${params.roomId}`,
+    'fc:frame:image': `${process.env.HOST_URL}/preview?roomId=${
+      params.roomId
+    }&time=${Date.now()}`,
     'fc:frame:button:1': 'Refresh Preview',
     'fc:frame:button:2': 'Join Meeting',
     'fc:frame:button:2:action': 'post_redirect',
