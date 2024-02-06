@@ -124,7 +124,6 @@ export async function GET(request: Request) {
                   height: '100%',
                   padding: '1.5rem',
                   display: 'flex',
-                  justifyContent: 'center',
                   flexDirection: 'column',
                 }}
               >
@@ -219,14 +218,14 @@ export async function GET(request: Request) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyItems: 'center',
-                  fontSize: '2rem',
+                  fontSize: '3.25rem',
                   fontWeight: '600',
                   width: '48%',
                   color: 'white',
                   fontFamily: 'Inter',
                 }}
               >
-                <span>Join this Huddle01 call to participate in the talk</span>
+                <span>Join this Huddle01 call</span>
               </div>
             </div>
           ) : (
