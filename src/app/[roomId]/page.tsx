@@ -35,8 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const Room = ({ params }: Props) => {
-  // return <Redirect roomId={params.roomId} />;
-  return <div>Room</div>;
+  return <Redirect roomId={params.roomId} />;
 };
 
 export default Room;
