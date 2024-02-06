@@ -22,7 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: 'Huddle01 Meet',
       images: [
-        'https://t4.ftcdn.net/jpg/04/61/47/03/360_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg',
+        `${process.env.HOST_URL}/preview?roomId=${
+          params.roomId
+        }&time=${Date.now()}`,
       ],
     },
     other: {
@@ -33,7 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const Room = ({ params }: Props) => {
-  return <Redirect roomId={params.roomId} />;
+  // return <Redirect roomId={params.roomId} />;
+  return <div>Room</div>;
 };
 
 export default Room;
