@@ -37,7 +37,7 @@ export async function POST(request: Request) {
   if (roomId && buttonId === 1) {
     const imageUrl = `${
       process.env.HOST_URL
-    }/reload?roomId=${roomId}&time=${Date.now()}`;
+    }/preview?roomId=${roomId}&time=${Date.now()}`;
     return new Response(
       `
         <!DOCTYPE html>
