@@ -47,7 +47,9 @@ export async function GET(request: Request) {
             flexDirection: 'column',
             backgroundColor: '#181A23',
             backgroundImage:
-              "url('https://huddle01-assets-frontend.s3.amazonaws.com/OG/grid.png')",
+              "url('https://huddle01-assets-frontend.s3.amazonaws.com/OG/grid-v2.png')",
+            backgroundSize: '100%',
+            backgroundPosition: 'center',
           }}
         >
           <div
@@ -83,7 +85,7 @@ export async function GET(request: Request) {
               <div
                 style={{
                   color: 'white',
-                  width: '48%',
+                  width: '35%',
                   height: '100%',
                   padding: '1.5rem',
                   display: 'flex',
@@ -182,14 +184,13 @@ export async function GET(request: Request) {
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyItems: 'center',
-                  fontWeight: '600',
+                  fontWeight: '800',
                   width: '48%',
                   color: 'white',
-                  fontFamily: 'Inter',
                 }}
               >
                 <span style={{ fontSize: '5rem' }}>Join this</span>
-                <span style={{ fontSize: '4rem' }}>Huddle01 Call</span>
+                <span style={{ fontSize: '3rem' }}>Huddle01 Call</span>
               </div>
             </div>
           ) : (
