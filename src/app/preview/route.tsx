@@ -10,6 +10,11 @@ interface previewPeersMetadata {
   peersCount: number;
 }
 
+interface roomDetails {
+  title: string;
+  roomType: 'VIDEO' | 'AUDIO';
+}
+
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
@@ -28,6 +33,17 @@ export async function GET(request: Request) {
       },
     }
   );
+
+  const roomDetailsResponse = await fetch(
+    `https://api.huddle01.com/api/v1/room-details/${roomId}`,
+    {
+      headers: {
+        'x-api-key': process.env.API_KEY!,
+      },
+    }
+  );
+
+  const { title, roomType } = (await roomDetailsResponse.json()) as roomDetails;
 
   const peers = (await peersMetadata.json()) as previewPeersMetadata;
 
@@ -189,8 +205,14 @@ export async function GET(request: Request) {
                   color: 'white',
                 }}
               >
-                <span style={{ fontSize: '5rem' }}>Join this</span>
-                <span style={{ fontSize: '3rem' }}>Huddle01 Call</span>
+                {roomType === 'VIDEO' ? (
+                  <span style={{ fontSize: '5rem' }}>Join this</span>
+                ) : (
+                  <span style={{ fontSize: '3rem' }}>Start Listening</span>
+                )}
+                <span style={{ fontSize: '3rem' }}>
+                  {title ? title : 'Huddle01 Call'}
+                </span>
               </div>
             </div>
           ) : (
